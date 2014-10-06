@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var message: UITextField!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var letterMessage: UILabel!
-    
+class ViewController: UIViewController {  
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var messageSentButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,30 +26,33 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func button() {
-        //setting the labels equal to the users input
-        name.text = username.text
-        letterMessage.text = message.text
+    
+    @IBAction func sendMessageButton() {
+        //set the labels equal to the text in the testFields
+        nameLabel.text = nameField.text
+        message.text = messageField.text
         
-        //create a color and set the color of the text of both labels equal to it
-        var color = UIColor(red: 180/255.0, green: 220/255.0, blue: 240/255.0, alpha: 1.0)
-        name.textColor = color
-        letterMessage.textColor = color
+        //if the name is jordan make the nameLabel color red
+        if nameField.text == "jordan" {
+            nameLabel.textColor = UIColor(red: 195/255.0, green: 128/255.0, blue: 128/255.0, alpha: 1.0)
+        }
         
-        //these two lines of code change the labels hidden value from true to false thereby displaying them.
-        name.hidden = false
-        letterMessage.hidden = false
+        //unhide the labels
+        nameLabel.hidden = false
+        message.hidden = false
         
-        //replaces the text the user typed with an empty string and therefore the placeholder returns.
-        username.text = ""
-        message.text = ""
+        //set the text in the textFields to empty strings so that they show their placeholder values
+        nameField.text = ""
+        messageField.text = ""
         
-        //after clicking out of each textfield the keyboard will disappear.
-        username.resignFirstResponder()
-        message.resignFirstResponder()
+        //change the title of the button
+        messageSentButton.setTitle("Message sent", forState: .Normal)
         
+        //after clicking away from the textFields the keyboard should disappear
+        nameField.resignFirstResponder()
+        messageField.resignFirstResponder()
     }
+    
 
 }
 
