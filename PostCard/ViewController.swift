@@ -26,15 +26,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func button() {
-        //the functionality of the app.
+        //setting the labels equal to the users input
         name.text = username.text
         letterMessage.text = message.text
-        name.textColor = UIColor(red: 180/255.0, green: 220/255.0, blue: 240/255.0, alpha: 1.0)
-        letterMessage.textColor = UIColor(red: 180/255.0, green: 220/255.0, blue: 240/255.0, alpha: 1.0)
+        
+        //create a color and set the color of the text of both labels equal to it
+        var color = UIColor(red: 180/255.0, green: 220/255.0, blue: 240/255.0, alpha: 1.0)
+        name.textColor = color
+        letterMessage.textColor = color
+        
+        //these two lines of code change the labels hidden value from true to false thereby displaying them.
         name.hidden = false
         letterMessage.hidden = false
+        
+        //replaces the text the user typed with an empty string and therefore the placeholder returns.
         username.text = ""
         message.text = ""
+        
+        //after clicking out of each textfield the keyboard will disappear.
         username.resignFirstResponder()
         message.resignFirstResponder()
         
