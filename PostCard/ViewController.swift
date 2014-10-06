@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func button() {
+        //the functionality of the app.
         name.text = username.text
         letterMessage.text = message.text
         name.textColor = UIColor(red: 180/255.0, green: 220/255.0, blue: 240/255.0, alpha: 1.0)
